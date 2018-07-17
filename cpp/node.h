@@ -1,6 +1,8 @@
 #ifndef NODE_H_
 #define NODE_H_
 
+#include <Eigen/Sparse>
+
 class Node {
 
 	public:
@@ -17,7 +19,7 @@ class Node {
 		Node(const Node&) = delete;
 
 		// Assignment operator
-		Node& operator=(const Node&) delete;
+		Node& operator=(const Node&) = delete;
 
 		// Move constructor
 		Node(Node&&) = delete;
@@ -37,7 +39,7 @@ class Node {
 		// Assign hydarulic head at the node
 		void set_head(double head) {
 			head_ = head;
-			ishead = true;
+			ishead_ = true;
 		}
 
 		// Return hydraulic head at the node
@@ -49,7 +51,7 @@ class Node {
 		// Assign discharge at the node
 		void set_discharge(double discharge) {
 			discharge_ = discharge;
-			isdischarge = true;
+			isdischarge_ = true;
 		}
 
 		// Return discharge at the node
@@ -72,7 +74,7 @@ class Node {
 		// whether head is assigned
 		bool ishead_{false};
 		// whether discharge is assigned
-		bool isdischarged_{false};
+		bool isdischarge_{false};
 };
 
 #endif  // NODE_H_

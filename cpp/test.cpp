@@ -1,11 +1,13 @@
-#include "catch.hpp"
 #include "node.h"
 
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
+
 TEST_CASE( "Node is checked", "[Node]" ) {
-	Node test = Node(123, {11.2, 22.3, 33.4});
+	Node test (123, {11.2, 22.3, 33.4});
 
 	REQUIRE( test.id() == 123 );
-	REQUIRE( test.coordinates() == ( 11.2, 22.3, 33.4 );
+	REQUIRE( test.coordinates()(2) == 33.4 );
 	REQUIRE( test.coord_at_dir(1) == 22.3 );
 	REQUIRE( test.ishead() == false );
 	REQUIRE( test.isdischarge() == false );
